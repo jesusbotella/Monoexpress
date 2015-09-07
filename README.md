@@ -31,9 +31,9 @@ Check the [Getting Started wiki page](https://github.com/jesusbotella/NodeSimple
 
 **API Reference**
 --------------------
-- [`registerEndpoints(String name, Object mongooseSchema [, Function authentication])`](http://)
-- [`setMongoDBURL(String mongoDBURL)`](http://)
-- [`listen(Integer port)`](http://)
+- [`registerEndpoints(String name, Object mongooseSchema [, Function authentication])`](#registerendpointsstring-name-object-mongooseschema--function-authentication)
+- [`setMongoDBURL(String mongoDBURL)`](#setmongodburlstring-mongodburl)
+- [`listen(Integer port)`](#listeninteger-port)
 
 #####`registerEndpoints(String name, Object mongooseSchema [, Function authentication])`
 Creates the Mongoose model, and registers the new API routes which will be exposed. You can pass an authentication function, like the ones used in Express, as the last parameter to control the access of all the routes included in this endpoint.

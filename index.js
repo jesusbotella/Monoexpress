@@ -36,7 +36,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 var init = function() {};
 
-var registerEndpoint = function(name, fields, authentication) {
+var registerEndpoints = function(name, fields, authentication) {
   database.registerModel(name, fields);
   app.use('/' + name, webServer.registerRoute(name, express, authentication));
 
@@ -75,7 +75,7 @@ var _printServerInfo = function() {
 
 module.exports = {
   init: init,
-  registerEndpoint: registerEndpoint,
+  registerEndpoints: registerEndpoints,
   setMongoDBURL: setMongoDBURL,
   listen: listen,
   express: app,

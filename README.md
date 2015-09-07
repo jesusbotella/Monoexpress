@@ -1,4 +1,6 @@
-# NodeSimpleAPI
+# Monoexpress API
+**MOngoNOdeEXPRESS**
+
 NodeJS Module to create an API with CRUD methods, based on Express and Mongoose. This module allows you to create an API to test something in a few minutes, and it is only needed to have a MongoDB database and NodeJS installed.
 
 Written in Javascript, following the [ES5 Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript/tree/master/es5#the-javascript-style-guide-guide).
@@ -12,7 +14,7 @@ Check the [Getting Started wiki page](https://github.com/jesusbotella/NodeSimple
 **Quick Example**
 --------------------
 
-    var API = require('simple-api');
+    var API = require('monoexpress');
 
     API.setMongoDBURL('YOUR_MONGO_URL');
 

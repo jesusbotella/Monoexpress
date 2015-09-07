@@ -34,9 +34,9 @@ Check the [Getting Started wiki page](https://github.com/jesusbotella/NodeSimple
 - [`listen(Integer port)`](http://)
 
 #####`registerEndpoints(String name, Object mongooseSchema [, Function authentication])`
-This method will create a new Mongoose mo
-Creates the Mongoose model, and register the new API routes which will be exposed. You can pass an authentication function, like the ones used in Express, as the last parameter to control the access of all the routes included in this endpoint.
+Creates the Mongoose model, and registers the new API routes which will be exposed. You can pass an authentication function, like the ones used in Express, as the last parameter to control the access of all the routes included in this endpoint.
 
+Routes registered:
     GET /<name>
     Retrieves all the documents within the collection
 

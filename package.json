@@ -1,5 +1,5 @@
 {
-  "name": "NodeSimpleAPI",
+  "name": "simple-api",
   "version": "1.0.0",
   "description": "NodeJS Module to create an API with CRUD methods, based on Express and Mongoose",
   "main": "index.js",

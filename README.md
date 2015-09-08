@@ -3,7 +3,7 @@
 
 NodeJS Module to create an API with CRUD methods, based on Express and Mongoose. This module allows you to create an API to whatever you want to do in a few minutes, and it is only needed to have a MongoDB database and NodeJS installed.
 
-What Monoexpress does is to build the Mongoose model and create endpoints to fetch, add, update, or delete the documents inside a MongoDB Collection without any effort.
+Monoexpress builds the Mongoose model and creates the endpoints to fetch, add, update, or delete documents inside a MongoDB Collection without any effort.
 
 Written in Javascript, following the [ES5 Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript/tree/master/es5#the-javascript-style-guide-guide).
 
@@ -13,7 +13,7 @@ This is an alpha version, so feel free to contribute if you want to make it bett
 --------------------
 Check the [Getting Started wiki page](https://github.com/jesusbotella/NodeSimpleAPI/wiki/Getting-Started) to see a brief tutorial about the module
 
-**Quick Example**
+**How it works**
 --------------------
 
     var API = require('monoexpress');
@@ -31,7 +31,7 @@ Check the [Getting Started wiki page](https://github.com/jesusbotella/NodeSimple
 
     API.listen();
 
-Then you can make requests to these methods of the API:
+Then you can make requests to these API methods:
 
 `GET /<name>`
 `Retrieves all the documents within the collection`
@@ -47,6 +47,8 @@ Then you can make requests to these methods of the API:
 
 `DELETE /<name>/<document_id>`
 `Deletes the selected document`
+
+*The express and mongoose objects are available as well in the API object, with 'express' and 'mongoose' object keys, respectively.*
 
 **API Reference**
 --------------------

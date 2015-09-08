@@ -1,7 +1,7 @@
 # Monoexpress API
 **MOngoNOdeEXPRESS**
 
-NodeJS Module to create an API with CRUD methods, based on Express and Mongoose. This module allows you to create an API to test something in a few minutes, and it is only needed to have a MongoDB database and NodeJS installed.
+NodeJS Module to create an API with CRUD methods, based on Express and Mongoose. This module allows you to create an API to whatever you want to do in a few minutes, and it is only needed to have a MongoDB database and NodeJS installed.
 
 Written in Javascript, following the [ES5 Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript/tree/master/es5#the-javascript-style-guide-guide).
 
@@ -59,7 +59,7 @@ Routes registered:
 Sets the MongoDB Database URL property, needed to initialize the API server.
 
 #####`listen(Integer port)`
-Makes the API available to handle all the requests, listening in the desired port passed as an argument. Otherwise, it will listen to requests at the port 3000.
+Makes the API available to handle all the requests, listening in the desired port passed as an argument. Otherwise, it will listen to requests at port 3000.
 
 **Developed by**
 --------------------

@@ -1,6 +1,6 @@
 {
   "name": "monoexpress",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "NodeJS Module to create an API with CRUD methods, based on Express and Mongoose",
   "main": "index.js",
   "dependencies": {

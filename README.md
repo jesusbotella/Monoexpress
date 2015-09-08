@@ -48,7 +48,7 @@ Then you can make requests to these API methods:
 `DELETE /<name>/<document_id>`
 `Deletes the selected document`
 
-*The express and mongoose objects are available as well in the API object, with the keys 'express' and 'mongoose', respectively.*
+*The express and mongoose objects are available as well in the API object, with 'express' and 'mongoose' object keys, respectively.*
 
 **API Reference**
 --------------------

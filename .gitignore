@@ -28,3 +28,5 @@ node_modules
 
 # JSCSRC
 .jscsrc
+
+app.js

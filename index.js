@@ -1,83 +1,56 @@
-//Simple API imports
-var webServer = require('./lib/express.js');
-var database = require('./lib/mongoose.js');
+/*!
+ * Monoexpress
+ * NodeJS Module to create an API with CRUD methods, based on Express and Mongoose.
+ * Copyright(c) 2015 Jesús Botella
+ * MIT Licensed
+ */
 
-// Internal info variables
-var endpoints = [];
+// Module Wrapper Import
+var APIServer = require('./lib/express.js');
+var Database = require('./lib/mongoose.js');
 
-///////////////////////////////////
-//    EXPRESS SERVER SETUP       //
-///////////////////////////////////
+// Debugging Setup
+var debug = require('debug')('monoexpress');
+debug('Initializing Monoexpress');
 
-// Load all express-required modules
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
-var bodyParser = require('body-parser');
+// Dependencies
 var mongoose = require('mongoose');
-var http = require('http');
 
-var debug = require('debug')('simple-api');
-debug('Initializing Simple API');
+// API Initialization
+var API = new APIServer();
 
-// Initialize express
-var app = express();
+// Database Initialization
+var DB = new Database();
 
-// Set up Express logger
-app.use(logger('dev'));
-
-// Express BodyParser
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-///////////////////////////////////
-//   SIMPLE API MODULE METHODS   //
-///////////////////////////////////
-
-var init = function() {};
-
-var registerEndpoints = function(name, fields, authentication) {
-  database.registerModel(name, fields);
-  app.use('/' + name, webServer.registerRoute(name, express, authentication));
-
-  endpoints.push(name);
+// Configurable User Data
+var userData = {
+  MONGODB_URL: ''
 };
 
-var setMongoDBURL = function(mongodbURL) {
-  app.set('mongodb_url', mongodbURL);
+/*!
+ * Monoexpress Module Exposed Methods
+ */
+
+var registerEndpoints = function(name, fields, authentication) {
+  DB.registerModel(name, fields);
+  API.app.use('/' + name, API.registerModelRoutes(name, authentication));
+};
+
+var setMongoDBURL = function(MONGODB_URL) {
+  userData.MONGODB_URL = MONGODB_URL;
 };
 
 var listen = function(port) {
-  database.connect(app.get('mongodb_url'));
+  DB.connect(userData.MONGODB_URL);
 
-  webServer.registerErrorHandlers(app);
-
-  var server = http.createServer(app);
-  server.listen(port || 3000);
-
-  _printServerInfo();
-
-  console.log('Ready to use at', server.address());
-
-};
-
-var _printServerInfo = function() {
-  debug('API Endpoints');
-  endpoints.forEach(function(endpoint) {
-    debug('\t' + endpoint.charAt(0).toUpperCase() + endpoint.substring(1));
-    debug('\t\tGET /' + endpoint);
-    debug('\t\tPOST /' + endpoint + '/add');
-    debug('\t\tGET /' + endpoint + '/:id');
-    debug('\t\tPOST /' + endpoint + '/:id/update');
-    debug('\t\tDELETE /' + endpoint + '/:id');
-  });
+  API.registerErrorHandlers();
+  API.listen();
 };
 
 module.exports = {
-  init: init,
   registerEndpoints: registerEndpoints,
   setMongoDBURL: setMongoDBURL,
   listen: listen,
-  express: app,
+  express: API.app,
   mongoose: mongoose
 };

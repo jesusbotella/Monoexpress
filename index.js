@@ -5,16 +5,15 @@
  * MIT Licensed
  */
 
+'use strict';
+
 // Module Wrapper Import
-var APIServer = require('./lib/express.js');
-var Database = require('./lib/mongoose.js');
+var APIServer = require('./lib/API');
+var Database = require('./lib/database');
 
 // Debugging Setup
 var debug = require('debug')('monoexpress');
 debug('Initializing Monoexpress');
-
-// Dependencies
-var mongoose = require('mongoose');
 
 // API Initialization
 var API = new APIServer();
@@ -33,7 +32,7 @@ var userData = {
 
 var registerEndpoints = function(name, fields, authentication) {
   DB.registerModel(name, fields);
-  API.app.use('/' + name, API.registerModelRoutes(name, authentication));
+  API.registerEndpoints(name, authentication);
 };
 
 var setMongoDBURL = function(MONGODB_URL) {
@@ -52,5 +51,8 @@ module.exports = {
   setMongoDBURL: setMongoDBURL,
   listen: listen,
   express: API.app,
-  mongoose: mongoose
+  mongoose: DB.mongoose
 };
+
+// Populate
+// More endpoints (creo que no)

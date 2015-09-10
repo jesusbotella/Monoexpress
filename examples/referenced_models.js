@@ -23,7 +23,7 @@ var companySchema = {
 };
 
 // Register Endpoints
-API.registerEndpoints('users', usersSchema);
-API.registerEndpoints('users', companySchema);
+API.registerEndpoints('Users', usersSchema);
+API.registerEndpoints('Company', companySchema);
 
 API.listen();

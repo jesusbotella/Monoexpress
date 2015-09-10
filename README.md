@@ -3,7 +3,7 @@
 
 NodeJS Module to create an API with CRUD methods, based on Express and Mongoose. This module allows you to create an API to whatever you want to do in a few minutes, and it is only needed to have a MongoDB database and NodeJS installed.
 
-Monoexpress builds the Mongoose model and creates the endpoints to fetch, add, update, or delete documents inside a MongoDB Collection without any effort.
+Monoexpress builds the Mongoose model and creates the endpoints to fetch, add, update, or delete documents inside a MongoDB Collection without any effort. Intended for small DIY projects or to test anything that needs an API.
 
 Written in Javascript, following the [ES5 Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript/tree/master/es5#the-javascript-style-guide-guide).
 
@@ -18,37 +18,39 @@ Check the [Getting Started wiki page](https://github.com/jesusbotella/NodeSimple
 
     var API = require('monoexpress');
 
-    API.setMongoDBURL('YOUR_MONGO_URL');
+    API.setMongoDBURL('YOUR_MONGODB_URL');
 
     // Mongoose Schema Model
     // http://mongoosejs.com/docs/guide.html
-    var userModel = {
+    var usersSchema = {
       name: String,
       address: String
     };
 
-    API.registerEndpoints('users', userModel);
+    // Register Endpoints
+    API.registerEndpoints('users', usersSchema);
 
     API.listen();
+*You can check more examples out [here](https://github.com/jesusbotella/Monoexpress/tree/master/examples)*
 
-Then you can make requests to these API methods:
+**After that, you can make requests to these API methods:**
 
-`GET /<name>`
+`GET /<name>`  
 `Retrieves all the documents within the collection`
 
-`POST /<name>/add`
+`POST /<name>/add`  
 `Creates a new document in the collection using the data included in the POST request`
 
-`GET /<name>/<document_id>`
+`GET /<name>/<document_id>`  
 `Returns the desired document`
 
-`POST /<name>/<document_id>/update`
+`POST /<name>/<document_id>/update`  
 `Updates the properties of the selected document with the properties included in the POST request.`
 
-`DELETE /<name>/<document_id>`
+`DELETE /<name>/<document_id>`  
 `Deletes the selected document`
 
-*The express and mongoose objects are available as well in the API object, with 'express' and 'mongoose' object keys, respectively.*
+*The express and mongoose objects are available as well in the API object, with 'express' and 'mongoose' object keys respectively.*
 
 **API Reference**
 --------------------
@@ -64,6 +66,10 @@ Sets the MongoDB Database URL property, needed to initialize the API server.
 
 #####`listen(Integer port)`
 Makes the API available to handle all the requests, listening in the desired port passed as an argument. Otherwise, it will listen to requests at port 3000.
+
+**Latest version added features**
+--------------------
+* 1.0.3 Subdocument autopopulation
 
 **Developed by**
 --------------------

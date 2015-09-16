@@ -53,6 +53,3 @@ module.exports = {
   express: API.app,
   mongoose: DB.mongoose
 };
-
-// Populate
-// More endpoints (creo que no)

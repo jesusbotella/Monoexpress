@@ -5,9 +5,9 @@
  * MIT Licensed
  */
 
-var API = require('monoexpress');
+var API = require('../');
 
-API.setMongoDBURL('YOUR_MONGODB_URL');
+API.setMongoDBURL('localhost:27018');
 
 // Mongoose Schema Model
 // http://mongoosejs.com/docs/guide.html

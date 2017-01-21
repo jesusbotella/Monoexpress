@@ -38,13 +38,13 @@ Check the [Getting Started wiki page](https://github.com/jesusbotella/NodeSimple
 `GET /<name>`  
 `Retrieves all the documents within the collection`
 
-`POST /<name>/add`  
+`POST /<name>`  
 `Creates a new document in the collection using the data included in the POST request`
 
 `GET /<name>/<document_id>`  
 `Returns the desired document`
 
-`POST /<name>/<document_id>/update`  
+`PATCH /<name>/<document_id>`  
 `Updates the properties of the selected document with the properties included in the POST request.`
 
 `DELETE /<name>/<document_id>`  
